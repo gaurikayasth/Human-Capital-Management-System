@@ -1,0 +1,72 @@
+<div class="container" style="width: 350px;border: 1px solid grey;border-radius: 8px;margin-top: 50px;padding-bottom: 20px;">
+<div class="jumbotron py-4">
+    <p class="display-4 mb-0 text-center">Profile</p>
+</div>
+
+<form (ngSubmit)="profileSubmit(profileForm)"  #profileForm="ngForm">
+    <div class="form-group">
+        <label>Id:</label>
+        <input type="text" class="form-control" name="empId" #empId="ngModel" [(ngModel)]="e1.empId" disabled/>
+        <small class="form-text text-danger" *ngIf="empId.dirty && empId.invalid">Id can't be empty</small>
+    </div>
+    <div class="form-group">
+        <label>Name:</label>
+        <input type="text" class="form-control" name="empName" #empName="ngModel" [(ngModel)]="e1.empName" required>
+        <small class="form-text text-danger" *ngIf="empName.dirty && empName.invalid"> Name can't be empty</small>
+    </div>
+    <div class="form-group">
+        <label>PhoneNo:</label><br>
+        <input type="text" class="form-control" name="empPhone" #empPhone="ngModel" [(ngModel)]="e1.empPhone" required/>
+        <small class="form-text text-danger" *ngIf="empPhone.dirty && empPhone.invalid">PhoneNo can't be empty</small>
+    </div>
+    <div class="form-group">
+        <label>Email-Id:</label>
+        <input type="email" class="form-control" name="email" #email="ngModel" [(ngModel)]="e1.email" required/>
+        <small class="form-text text-danger" *ngIf="email.dirty && email.invalid">Email can't be empty</small>
+    </div>
+    <div class="form-group">
+        <label>Address:</label>
+        <input type="text" class="form-control" name="empAddress" #empAddress="ngModel" [(ngModel)]="e1.empAddress" required/>
+        <small class="form-text text-danger" *ngIf="empAddress.dirty && empAddress.invalid">Address can't be empty</small>
+    </div>
+    <div class="form-group">
+        <label>Gender:</label>
+        <input type="text" class="form-control" name="empGender" #empGender="ngModel" [(ngModel)]="e1.empGender" required/>
+        <small class="form-text text-danger" *ngIf="empGender.dirty && empGender.invalid">Gender can't be empty</small>
+    </div>
+    <div class="form-group">
+        <label>Salary:</label>
+        <input type="text" class="form-control" name="empSalary" #empSalary="ngModel" [(ngModel)]="e1.empSalary" required/>
+        <small class="form-text text-danger" *ngIf="empSalary.dirty && empSalary.invalid">Salary can't be empty</small>
+    </div>
+    <div class="form-group">
+        <label>Password:</label>
+        <input type="text" class="form-control" name="password" #password="ngModel" [(ngModel)]="e1.password" required/>
+        <small class="form-text text-danger" *ngIf="password.dirty && password.invalid">Password can't be empty</small>
+    </div>
+    <div class="form-group">
+        <label>Date Of Joining:</label>
+        <input type="text" class="form-control" name="dateOfJoining" #dateOfJoining="ngModel" [(ngModel)]="e1.dateOfJoining" required/>
+        <small class="form-text text-danger" *ngIf="dateOfJoining.dirty && dateOfJoining.invalid">Date can't be empty</small>
+    </div><br/>
+    <button type="submit" class="btn btn-primary ms-5 me-5" [disabled]="profileForm.pristine || profileForm.invalid">submit</button>
+    <button type="button" class="btn btn-danger ms-4" (click)="deleteProfile()">delete</button>
+</form>
+
+<div class="alert alert-success mt-2" role="alert" *ngIf="successFlag">
+    Profile Saved Successfully!
+</div>
+
+<div class="alert alert-info mt-2" role="alert" *ngIf="dSuccessFlag">
+    Profile Deleted Successfully!
+</div>
+
+<div class="alert alert-danger mt-2" role="alert" *ngIf="errorFlag">
+    Profile couldn't be saved!
+</div>
+
+<div class="alert alert-danger mt-2" role="alert" *ngIf="dErrorFlag">
+    Profile couldn't be deleted!
+</div>
+
+</div>

@@ -1,0 +1,63 @@
+<div class="container">
+    <p class="display-4 py-3 text-center">Employees List</p>
+    <hr />
+    <div *ngIf="allEmployees.length==0">No Employees Found!</div>
+    <div *ngIf="allEmployees.length>0">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">EmployeeId</th>
+                <th scope="col">Name</th>
+                <th scope="col">PhoneNo</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Salary</th>
+                <th scope="col">Password</th>
+                <th scope="col">Date Of Joining</th>
+                <th scope="col">SkillSet</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of allEmployees">
+                <td>{{item.empId}}</td>
+                <td>{{item.empName}}</td>
+                <td>{{item.empPhone}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.empAddress}}</td>
+                <td>{{item.empGender}}</td>
+                <td>{{item.empSalary}}</td>
+                <td>{{item.password}}</td>
+                <td>{{item.dateOfJoining}}</td>
+                <td><button class="btn btn-link" (click)="getSkillsByEmployee(item.empId)">Skills</button></td>
+            </tr>
+        </tbody>
+    </table>
+    </div><br/><br/>
+
+    <p class="h3 text-center">Skills</p>
+    <hr/>
+
+    <div *ngIf="skillsByEmployee.length==0">No Skills Found!</div>
+    <div *ngIf="skillsByEmployee.length>0">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">SkillId</th>
+                <th scope="col">Name</th>
+                <th scope="col">Version</th>
+                <th scope="col">Level</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let skill of skillsByEmployee">
+                <td>{{skill.skillId}}</td>
+                <td>{{skill.skillName}}</td>
+                <td>{{skill.skillVersion}}</td>
+                <td>{{skill.skillLevel}}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+</div>

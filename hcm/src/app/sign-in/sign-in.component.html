@@ -1,0 +1,25 @@
+<div class="container" style="width: 350px;border: 1px solid grey;border-radius: 8px;margin-top: 50px;padding-bottom: 20px;">
+    <div class="jumbotron py-4">
+      <p class="display-4 mb-0 text-center">Sign In</p>
+    </div>
+  
+    <form (ngSubmit)="sign(signInForm)" #signInForm="ngForm">
+      <div class="form-group">
+        <label>Enter Email</label>
+        <input type="text" class="form-control" name="email" #email="ngModel" [(ngModel)]="e1.email" required><!--#email="ngModel" have cntroll over all textbox -->
+        <small class="form-text text-danger" *ngIf="email.dirty && email.invalid">Email id can't be empty</small>
+      </div>
+      <div class="form-group">
+        <label>Enter Password</label>
+        <input type="password" class="form-control" name="password" #password="ngModel" [(ngModel)]="e1.password"
+          required>
+          <small class="form-text text-danger" *ngIf="password.dirty && password.invalid">Password can't be empty</small>
+      </div><br/>
+      <button type="submit" class="btn btn-primary" [disabled]="signInForm.pristine || signInForm.invalid">Submit</button>
+    </form>
+
+    <div class="alert alert-danger mt-2" role="alert" *ngIf="invalidLoginFlag">
+        Authentication failure because of Invalid Credentials!
+    </div>
+</div>
+  

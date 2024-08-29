@@ -1,0 +1,57 @@
+<div class="container">
+    <p class="display-4 py-3 text-center">Department List</p>
+    <hr />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">HOD</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let department of allDepartments">
+                <td>{{department.deptId}}</td>
+                <td><button class="btn btn-link" (click)="getEmployeesByDepartment(department.deptId)">{{department.deptName}}</button></td>
+                <td>{{department.deptHead}}</td>
+            </tr>
+        </tbody>
+    </table><br/><br/>
+
+    <p class="h3 text-center">Employees</p>
+    <hr/>
+
+    <div *ngIf="employeesByDepartment.length==0">No Employees Found!</div>
+    <div *ngIf="employeesByDepartment.length>0">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">EmployeeId</th>
+                <th scope="col">Name</th>
+                <th scope="col">PhoneNo</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Salary</th>
+                <th scope="col">Password</th>
+                <th scope="col">Date Of Joining</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of employeesByDepartment">
+                <td>{{item.empId}}</td>
+                <td>{{item.empName}}</td>
+                <td>{{item.empPhone}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.empAddress}}</td>
+                <td>{{item.empGender}}</td>
+                <td>{{item.empSalary}}</td>
+                <td>{{item.password}}</td>
+                <td>{{item.dateOfJoining}}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+</div>
